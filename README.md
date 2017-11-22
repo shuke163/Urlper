@@ -27,17 +27,17 @@
 1. 确保本地已经安装python3.x + Django1.10.x以上版本环境  
 2. 拉取代码并运行程序  
 ```
-# git clone http://
+# git clone git@github.com:shuke163/Urlper.git
 # cd URLPER;python manage.py runserver
 ```
 3. 浏览器访问  
-[登陆](http://127.0.0.1:8000/login/)
+登陆: http://127.0.0.1:8000/login/  
 4. 测试账号  
 管理员: username: shuke password: 123    
 添加权限: username: jack password: 123    
 查看权限：username: tom  password: 123  
 5. 管理后台  
-[管理](http://127.0.0.1:8000/admin/)  
+管理: http://127.0.0.1:8000/admin/  
 登陆账号: username: shuke password: admin!2345
 6. 验证
 * 管理员账号拥有所有URL访问权限
@@ -57,7 +57,7 @@
 1. 在自己的项目中导入rbac包
 2. 修改template/menu.html模板文件，用于渲染生成菜单  
 3. 配置参数: 参照setting.py文件末尾权限相关配置项
-4. 在setting.py文件MIDDLEWARE配置项中注册中间件(rbac.middleware.rbac.RbacMiddleware)，使rbac组件生效，注册时需注意组件顺序  
+4. 在setting.py文件MIDDLEWARE配置项中注册中间件(rbac.middleware.rbac.RbacMiddleware)，使rbac组件生效，注册时需注意组件注册顺序  
 
 ### 计划
 * 结合自定义admin模块实现针对所有app的module数据进行统一的CURD操作
