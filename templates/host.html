@@ -1,0 +1,101 @@
+{% extends 'index.html' %}
+
+
+{% block right-content %}
+    <div class="right-content">
+        {% if 'add' in request.permission_code_list %}
+            <a href="{% url 'hostadd' %}" class="btn btn-success btn-md" role="button">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New
+            </a>
+        {% endif %}
+        <div class="table-responsive tab-list">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr class="active info">
+                        <th>id</th>
+                        <th>主机名</th>
+                        <th>IP地址</th>
+                        <th>配置</th>
+                        <th>状态</th>
+                        {% if 'del' in request.permission_code_list or 'edit' in request.permission_code_list %}
+                            <th>操作</th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>ngx01.termite.com</td>
+                        <td>192.168.1.100</td>
+                        <td>4c-8g-100g</td>
+                        <td>在线</td>
+                        <!-- 如果有操作权限则显示按钮 -->
+                        {% if 'del' in request.permission_code_list or 'edit' in request.permission_code_list %}
+                            <td>
+                                {% if 'edit' in request.permission_code_list %}
+                                    <button type="button" class="btn btn-info btn-sm"
+                                        data-toggle="modal"
+                                        data-target="#modifydata"> 编辑
+                                    </button>
+                                {% endif %}
+                                {% if 'del' in request.permission_code_list %}
+                                    <button type="button" class="btn btn-danger btn-sm"
+                                        data-toggle="modal"
+                                        data-target="#delModal"> 删除
+                                </button>
+                                {% endif %}
+                            </td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>ngx02.termite.com</td>
+                        <td>192.168.1.101</td>
+                        <td>4c-16g-100g</td>
+                        <td>下线</td>
+                        {% if 'del' in request.permission_code_list or 'edit' in request.permission_code_list %}
+                            <td>
+                                {% if 'edit' in request.permission_code_list %}
+                                    <button type="button" class="btn btn-info btn-sm"
+                                        data-toggle="modal"
+                                        data-target="#modifydata"> 编辑
+                                    </button>
+                                {% endif %}
+                                {% if 'del' in request.permission_code_list %}
+                                    <button type="button" class="btn btn-danger btn-sm"
+                                        data-toggle="modal"
+                                        data-target="#delModal"> 删除
+                                </button>
+                                {% endif %}
+                            </td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>ngx03.termite.com</td>
+                        <td>192.168.1.102</td>
+                        <td>8c-16g-2T</td>
+                        <td>在线</td>
+                        {% if 'del' in request.permission_code_list or 'edit' in request.permission_code_list %}
+                            <td>
+                                {% if 'edit' in request.permission_code_list %}
+                                    <button type="button" class="btn btn-info btn-sm"
+                                        data-toggle="modal"
+                                        data-target="#modifydata"> 编辑
+                                    </button>
+                                {% endif %}
+                                {% if 'del' in request.permission_code_list %}
+                                    <button type="button" class="btn btn-danger btn-sm"
+                                        data-toggle="modal"
+                                        data-target="#delModal"> 删除
+                                </button>
+                                {% endif %}
+                            </td>
+                        {% endif %}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h2>主机列表页面</h2>
+    </div>
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% load rbac %}
+
+<!-- 头部 -->
+{% block nav-header %}
+    <div class="pg-header">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand nav-logo" href="#">运维管理中心</a>
+                </div>
+                <div id="nav-header">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">云平台</a></li>
+                        <li><a href="#">监控中心</a></li>
+                        <li><a href="#">版本发布</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav" style="float: right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-user">
+                                {{ request.session.userinfo.username }}
+                            </span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="#">Settings</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{% url 'logout' %}">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+{% endblock %}
+
+<!-- 左侧菜单 -->
+{% block left-menu %}
+    {% menu_html request %}
+    {% comment %}
+    <div class="item">
+        <div class="item-title">菜单一</div>
+        <div class="nav nav-stacked item-permission">
+            <li><a href="#"> 主机列表1 </a></li>
+        </div>
+        <div class="item-permission">
+            <a href="#"> 主机列表2 </a>
+        </div>
+    </div>
+    <div class="item">
+        <div class="item-title">菜单二</div>
+        <div class="item-permission hide">
+            <a href="#"> 用户列表 </a>
+        </div>
+    </div>
+    {% endcomment %}
+{% endblock %}
+
+{% block right-content %}
+    <div class="right-content">
+        <h2>Hello World!</h2>
+    </div>
+{% endblock %}
+
+
+{% block JavaScripts %}
+    <script>
+        // 顶部tab切换激活
+        function NavTable() {
+            var ele = $('#nav-header').children('ul').first().find('a');
+            ele.click(function () {
+                $(this).parent('li').addClass('active').siblings().removeClass('active');
+
+            });
+        }
+        // 激活当前选项
+        function ActiveMenu() {
+            var ele = $('div.item-permission').children('a');
+            ele.click(function () {
+                $(this).addClass('active').parent('div.item-permission').siblings('div.item-permission').children('a').removeClass('active');
+                $(this).parents('div.item').siblings().find('a').removeClass('active')
+            })
+        }
+
+        // 控制菜单是否展开
+        function EventMenu() {
+            $('div.item-title').click(function () {
+                var mene_obj = $(this).nextAll('div.item-permission');
+                mene_obj.each(function () {
+                    var is_hide = $(this).hasClass('hide');
+                    if (is_hide) {
+                        $(this).removeClass('hide')
+                    } else {
+                        $(this).addClass('hide')
+                    }
+                })
+            })
+        }
+        NavTable();
+        ActiveMenu();
+        EventMenu();
+    </script>
+{% endblock %}

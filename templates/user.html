@@ -1,0 +1,97 @@
+{% extends 'index.html' %}
+
+
+{% block right-content %}
+    <div class="right-content">
+        {% if 'add' in request.permission_code_list %}
+            <a href="{% url 'useradd' %}" class="btn btn-success btn-md" role="button">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New
+            </a>
+        {% endif %}
+        <div class="table-responsive tab-list">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr class="active info">
+                        <th>id</th>
+                        <th>部门</th>
+                        <th>用户名</th>
+                        <th>邮箱</th>
+                        {% if 'del' in request.permission_code_list or 'edit' in request.permission_code_list %}
+                            <th>操作</th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>研发</td>
+                        <td>tom</td>
+                        <td>tom123@123.com</td>
+                        <!-- 如果有操作权限则显示按钮 -->
+                        {% if 'del' in request.permission_code_list or 'edit' in request.permission_code_list %}
+                            <td>
+                                {% if 'edit' in request.permission_code_list %}
+                                    <button type="button" class="btn btn-info btn-sm"
+                                        data-toggle="modal"
+                                        data-target="#modifydata"> 编辑
+                                    </button>
+                                {% endif %}
+                                {% if 'del' in request.permission_code_list %}
+                                    <button type="button" class="btn btn-danger btn-sm"
+                                        data-toggle="modal"
+                                        data-target="#delModal"> 删除
+                                </button>
+                                {% endif %}
+                            </td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>运营</td>
+                        <td>jack</td>
+                        <td>jack123@123.com</td>
+                        {% if 'del' in request.permission_code_list or 'edit' in request.permission_code_list %}
+                            <td>
+                                {% if 'edit' in request.permission_code_list %}
+                                    <button type="button" class="btn btn-info btn-sm"
+                                        data-toggle="modal"
+                                        data-target="#modifydata"> 编辑
+                                    </button>
+                                {% endif %}
+                                {% if 'del' in request.permission_code_list %}
+                                    <button type="button" class="btn btn-danger btn-sm"
+                                        data-toggle="modal"
+                                        data-target="#delModal"> 删除
+                                </button>
+                                {% endif %}
+                            </td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>DevOps</td>
+                        <td>shuke</td>
+                        <td>shuke123@123.com</td>
+                        {% if 'del' in request.permission_code_list or 'edit' in request.permission_code_list %}
+                            <td>
+                                {% if 'edit' in request.permission_code_list %}
+                                    <button type="button" class="btn btn-info btn-sm"
+                                        data-toggle="modal"
+                                        data-target="#modifydata"> 编辑
+                                    </button>
+                                {% endif %}
+                                {% if 'del' in request.permission_code_list %}
+                                    <button type="button" class="btn btn-danger btn-sm"
+                                        data-toggle="modal"
+                                        data-target="#delModal"> 删除
+                                </button>
+                                {% endif %}
+                            </td>
+                        {% endif %}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h2>用户列表页面</h2>
+    </div>
+{% endblock %}

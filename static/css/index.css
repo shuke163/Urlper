@@ -1,0 +1,50 @@
+a.nav-logo {
+    width: 200px;
+    min-width: 200px;
+    text-align: center
+}
+
+.active {
+    background-color: #080808;
+    border-right: 1px solid #F9FF1B;
+}
+
+.hide {
+    display: none;
+}
+
+div.item-title {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 30px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #9d9d9d;
+}
+
+div.item-permission > a {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 40px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #9d9d9d;
+}
+
+div.item-title:hover, div.item-permission > a:hover {
+    color: white;
+}
+
+div.right-content {
+    margin: 10px;
+}
+
+div.tab-list {
+    margin-top: 50px;
+}
+
+div.right-content > h2 {
+    text-align: center;
+    margin-top: 200px;
+}

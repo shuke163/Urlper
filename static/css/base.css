@@ -1,0 +1,17 @@
+div.left-menu {
+    position: fixed;
+    width: 200px;
+    left: 0;
+    top: 50px;
+    bottom: 0;
+    background-color: rgb(87, 84, 84);
+    color: #9d9d9d;
+}
+
+div.pg-content {
+    position: absolute;
+    left: 200px;
+    top: 50px;
+    bottom: 0;
+    right: 0;
+}

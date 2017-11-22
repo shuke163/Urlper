@@ -1,0 +1,53 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+    <title>Rbac</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet"  type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet"  type="text/css" href="{% static 'font-awesome/css/font-awesome.css' %}">
+    <link rel="stylesheet"  type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet"  type="text/css" href="{% static 'css/index.css' %}">
+    {% block style %}
+    {% endblock %}
+</head>
+
+<body>
+    <!-- 头部 -->
+    {% block nav-header %}
+
+    {% endblock %}
+
+    <!-- 页面主体 -->
+    {% block pg-main %}
+        <!-- 左侧菜单 -->
+        <div class="left-menu">
+            {% block left-menu %}
+            {% endblock %}
+        </div>
+        <!-- 右侧内容 -->
+        <div class="pg-content">
+            {% block right-content %}
+            {% endblock %}
+        </div>
+    {% endblock %}
+
+    <!-- 尾部 -->
+    {% block pg-footer %}
+    {% endblock %}
+
+    <!-- 模态框 -->
+    {% block modal %}
+    {% endblock %}
+
+    <script type="text/javascript" src="{% static 'bootstrap/js/jquery-3.2.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+    {% block JavaScripts %}
+    {% endblock %}
+</body>
+</html>
