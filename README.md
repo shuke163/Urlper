@@ -60,8 +60,8 @@
 4. 在setting.py文件MIDDLEWARE配置项中注册中间件(rbac.middleware.rbac.RbacMiddleware)，使rbac组件生效，注册时需注意组件注册顺序  
 
 ### 计划
-* 结合自定义admin模块实现针对所有app的module数据进行统一的CURD操作
-* Rbac管理功能由项目前端统一进行操作
+* 结合自定义admin组件实现针对所有app的models数据模型进行统一的CURD操作
+* RBAC权限组件的管理维护功能在项目前端界面进行操作,不在依赖自带的Django admin后台
 * 初步完成一个简版CMDB功能
 * 完善项目前度展示UI
 
